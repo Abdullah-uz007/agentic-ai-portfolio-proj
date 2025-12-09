@@ -1,8 +1,3 @@
-Here is an **even more attractive, polished, badge-heavy, professional GitHub `README.md`** — looks like a real production-level project.
-You can copy/paste this **exactly**.
-
----
-
 # 🌍 **Agentic Travel Planner**
 
 ### *AI-powered multi-tool travel assistant using LangChain + Groq + real-world APIs*
@@ -181,13 +176,3 @@ Final Formatted 3-Day Itinerary
 * Includes both **CLI & UI**
 * Professional structure suitable for assignment & portfolio
 
----
-
-If you want, I can also create:
-
-✨ `tools.py`
-✨ `.env.example`
-✨ `gradio_app.py`
-✨ GitHub banner image
-
-Just say: **"Give me the remaining files"**
