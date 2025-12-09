@@ -1,0 +1,54 @@
+import os
+from dotenv import load_dotenv
+from langchain.tools import Tool
+from langchain_openai import ChatOpenAI
+from langchain.agents import initialize_agent, AgentType
+
+from tools import (
+    get_weather,
+    get_hotels,
+    get_attractions,
+    get_flights,
+    estimate_budget
+)
+
+load_dotenv()
+
+llm = ChatOpenAI(
+    model="gpt-4.1",
+    api_key=os.getenv("GROQ_API_KEY"),
+    base_url="https://api.groq.com/openai/v1"
+)
+
+tools = [
+    Tool.from_function(get_weather),
+    Tool.from_function(get_hotels),
+    Tool.from_function(get_attractions),
+    Tool.from_function(get_flights),
+    Tool.from_function(estimate_budget)
+]
+
+agent = initialize_agent(
+    tools,
+    llm,
+    agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+    verbose=True
+)
+
+def main():
+    print("\n🌍 **Agentic Travel Planner**")
+    print("Type your query (or 'exit'): ")
+
+    while True:
+        query = input("\nYou: ")
+
+        if query.lower() == "exit":
+            print("Goodbye!")
+            break
+
+        response = agent.run(query)
+        print("\n🧠 Agent:\n")
+        print(response)
+
+if __name__ == "__main__":
+    main()
