@@ -1,0 +1,54 @@
+Project Assignment: Building an Agentic
+AI Assistant with LangChain and External
+Tools/APIs
+
+1. High-Level Goal
+Design and implement an AI assistant using LangChain that can autonomously decide which
+tools/APIs to call and in what order to solve a user’s query.
+The assistant must:
+● Use LangChain’s agent/agentic flow (e.g., tool calling + reasoning loop).
+● Integrate either:
+○ At least 3 tools (e.g., search, calculator, local file reader, database query, etc.),
+or
+○ At least 2 external APIs wrapped as tools (e.g., weather API, news API,
+flight/hotel API, GitHub API, etc.).
+● Handle multi-step tasks where the agent:
+○ Plans,
+○ Calls tools,
+○ Uses intermediate results to decide next steps,
+○ And returns a final, well-structured answer to the user.
+
+2. Example Use-Case Scenario (Propose Your Own)
+You must choose one primary use case, and design the agent around it.
+For Example: “Travel Planning Agent”
+An agent that helps a user plan a short trip. For example:
+● Inputs: destination city, travel dates, budget, preferences (e.g., museums, food, nightlife).
+● The agent should:
+○ Fetch real-time or recent information using APIs/tools (e.g., weather forecast
+for those dates, places to visit, approximate hotel prices).
+○ Possibly estimate a simple cost breakdown (using a calculator tool).
+○ Output: Day-by-day itinerary and brief justification for each recommendation.
+
+Tools / APIs examples:
+● Weather API as a tool
+● Places/attractions API (e.g., maps/places) as a tool
+● Calculator or custom “budget helper” tool
+● (Optional) A local JSON/CSV file with typical costs per city as a data tool
+
+1. User Experience
+○ Interact through a simple CLI or minimal web interface (e.g., a CLI prompt loop
+or a simple Gradio/Streamlit app).
+○ Show, in the logs or interface, the sequence of tool calls and reasoning steps at
+a high level (you can log tool names and their outputs).
+
+3. Deliverables
+1. GitHub Repo with User ****Guide
+○ How to install dependencies.
+○ How to run the agent.
+○ Example commands/prompts the user can try.
+○ Any API keys or configuration needed (without exposing your actual keys).
+2. Demo
+○ Short demo (recorded video) showing:
+■ User query,
+■ Tool sequence (can be logs),
+■ Final answer.
