@@ -1,0 +1,15 @@
+import gradio as gr
+from app import agent
+
+def agent_response(user_input):
+    return agent.run(user_input)
+
+ui = gr.Interface(
+    fn=agent_response,
+    inputs=gr.Textbox(lines=3, label="Ask the Travel Agent"),
+    outputs=gr.Markdown(label="Response"),
+    title="🌍 Agentic Travel Planner",
+    description="AI-powered travel planner using LangChain + Groq + external APIs"
+)
+
+ui.launch()
