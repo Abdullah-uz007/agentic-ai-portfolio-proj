@@ -1,62 +1,92 @@
-# 🌍 **Agentic Travel Planner — LangChain + Groq + External APIs**
-
-An intelligent travel assistant that uses **LangChain agents**, **tool calling**, and **multiple real APIs** to autonomously gather weather, hotels, attractions, and flight data — then creates a **3-day travel itinerary**.
-
----
-
-# 🚀 **1. Installation Guide**
-
-## ✅ **Step 1 — Clone the repository**
-
-```bash
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
-```
-
-## ✅ **Step 2 — Create a virtual environment (optional but recommended)**
-
-```bash
-python -m venv venv
-source venv/bin/activate   # Mac/Linux
-venv\Scripts\activate      # Windows
-```
-
-## ✅ **Step 3 — Install dependencies**
-
-Install everything needed to run the agent:
-
-```bash
-pip install -r requirements.txt
-```
-
-If you don’t have a `requirements.txt` yet, use the one below:
-
-```
-langchain
-langchain-core
-langchain-community
-langchain-openai
-langchain-groq
-openai
-requests
-python-dotenv
-pydantic
-gradio
-groq
-tavily-python
-```
+Here is an **even more attractive, polished, badge-heavy, professional GitHub `README.md`** — looks like a real production-level project.
+You can copy/paste this **exactly**.
 
 ---
 
-# 🔑 **2. API Keys Configuration**
+# 🌍 **Agentic Travel Planner**
 
-Create a `.env` file in the project root:
+### *AI-powered multi-tool travel assistant using LangChain + Groq + real-world APIs*
 
-```bash
-touch .env
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/LangChain-Agentic-brightgreen?logo=chainlink" />
+  <img src="https://img.shields.io/badge/Groq-UltraFastLLM-orange?logo=groq" />
+  <img src="https://img.shields.io/badge/External_APIs-4-purple" />
+  <img src="https://img.shields.io/badge/Interface-CLI%20%7C%20Gradio-ff69b4" />
+  <img src="https://img.shields.io/badge/Status-Complete-success" />
+  <img src="https://img.shields.io/badge/License-MIT-lightgrey" />
+</p>
+
+---
+
+# ✨ **Overview**
+
+The **Agentic Travel Planner** is an advanced AI assistant that uses **LangChain’s agent framework** and **Groq’s ultra-fast inference** to autonomously:
+
+✔ Fetch weather data
+✔ Retrieve hotel options
+✔ Discover attractions
+✔ Fetch flight details
+✔ Estimate cost
+✔ Produce a final **3-day beautifully formatted itinerary**
+
+This project demonstrates **true agentic workflow** — planning, tool selection, multi-step API calling, reasoning, and final structured response generation.
+
+---
+
+# 🚀 **Features**
+
+### 🧠 **Intelligent Agentic Reasoning**
+
+* Dynamic planning
+* Multi-step tool execution
+* Autonomous decision-making
+
+### 🌐 **Real External APIs**
+
+| Feature     | API                      | Badge                                                     |
+| ----------- | ------------------------ | --------------------------------------------------------- |
+| Weather     | OpenWeather13 (RapidAPI) | ![](https://img.shields.io/badge/WeatherAPI-Active-blue)  |
+| Hotels      | TripAdvisor (RapidAPI)   | ![](https://img.shields.io/badge/HotelsAPI-Active-orange) |
+| Attractions | Foursquare Places API    | ![](https://img.shields.io/badge/PlacesAPI-Active-purple) |
+| Flights     | Kiwi.com (RapidAPI)      | ![](https://img.shields.io/badge/FlightsAPI-Active-green) |
+
+### ⚡ **Powered by Groq**
+
+* Uses `openai/gpt-oss-20b` via Groq’s fast LPU engine
+* Near-instant responses
+
+### 💻 **Two Interfaces**
+
+* 🖥 **CLI Mode**
+* 🌐 **Gradio Web App**
+
+### 📄 **Clean 3-Day Itinerary Output**
+
+* Markdown formatted
+* Hotels + weather + flights combined
+* Day-by-day plan
+
+---
+
+# 📦 **Project Structure**
+
+```
+project/
+│── app.py                 # CLI agent interface
+│── gradio_app.py          # Optional Gradio UI
+│── tools.py               # All tools (weather/hotel/flights/places/budget)
+│── requirements.txt
+│── README.md
+│── .env.example
+└── .gitignore
 ```
 
-Add all your API keys (without exposing real values):
+---
+
+# 🔑 **API Keys Configuration**
+
+Create a `.env` file:
 
 ```
 GROQ_API_KEY=your_key_here
@@ -66,137 +96,98 @@ PLACES_API_KEY=your_key_here
 FLIGHTS_API_KEY=your_key_here
 ```
 
-➡️ **Do NOT upload your actual keys to GitHub.**
-➡️ Add `.env` to `.gitignore`.
+⚠️ Do NOT upload real keys to GitHub.
 
 ---
 
-# 🧠 **3. How to Run the Agent**
+# ⚙️ **Installation**
 
-## ▶️ **Option 1 — Run From Terminal (CLI Mode)**
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/<your-username>/<repo-name>.git
+cd <repo-name>
+```
+
+### 2️⃣ Install requirements
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3️⃣ Add your `.env` file
+
+(Use `.env.example` as a template)
+
+---
+
+# ▶️ **Run the Travel Agent**
+
+### **CLI Mode**
 
 ```bash
 python app.py
 ```
 
-You will see:
-
-```
-Enter your travel query:
-```
-
-Example:
+Example prompt:
 
 ```
 Plan a 3-day trip to London including weather, hotels, flights, and attractions.
 ```
 
-The agent will automatically:
-
-* Call weather API
-* Call hotels API
-* Call attractions API
-* Call flights API
-* Merge all data
-* Return a formatted 3-day itinerary
-
 ---
 
-## ▶️ **Option 2 — Run the Gradio Web App**
+### **Gradio Web App**
 
 ```bash
 python gradio_app.py
 ```
 
-You will get a local URL like:
-
-```
-Running on http://127.0.0.1:7860/
-```
-
-Open in your browser and chat with the travel agent.
+Open the local URL shown in terminal.
 
 ---
 
-# 💬 **4. Example Queries You Can Try**
+# 💬 **Example Prompts**
 
 Try these:
 
-### **Basic**
-
-```
-Plan a 3-day trip to Dubai.
-```
-
-### **Detailed**
-
-```
-Plan a 3-day trip to Istanbul including weather, hotels, flight cost, attractions, and budget estimation.
-```
-
-### **Different Cities**
-
-```
-What are the hotel options, weather, and attractions in Kuala Lumpur?
-```
-
-### **Flight-focused**
-
-```
-Find flight prices from Pakistan to Toronto and give suggestions.
-```
-
-### **Full Travel Plan**
-
-```
-Give me weather, hotels, flight prices, attractions, and a full itinerary for Paris.
-```
+🌴 *“Plan a 3-day trip to Dubai with weather and hotel suggestions.”*
+🛫 *“Find flights and budget for a 3-day trip to Toronto.”*
+🎡 *“Get attractions, hotel prices, and a day-wise itinerary for Paris.”*
+🌦 *“What is the weather and best hotels in Kuala Lumpur?”*
 
 ---
 
-# 🧩 **5. Tools Used by the Agent**
-
-Your LangChain agent uses these APIs wrapped as tools:
-
-| Tool Name         | Description                       | API Source            |
-| ----------------- | --------------------------------- | --------------------- |
-| `get_weather`     | Gets weather for a city           | OpenWeather RapidAPI  |
-| `get_hotel`       | Searches hotel locations & prices | Tripadvisor RapidAPI  |
-| `get_places`      | Shows top attractions             | Foursquare Places API |
-| `get_flights`     | Gets flight prices                | Kiwi Flights RapidAPI |
-| `estimate_budget` | Simple trip cost calculator       | Local tool            |
-
-The agent automatically decides which tools to call and in what order.
-
----
-
-# 🔍 **6. Project Flow (Simplified)**
+# 🎯 **Agent Workflow**
 
 ```
 User Query →
 Agent Planning →
-Weather Tool →  
-Hotel Tool →  
-Places Tool →  
-Flights Tool →  
-Budget Tool (optional) →
-Agent Merges All Data →
-Final 3-Day Itinerary
-```
-
-# 📦 **8. Folder Structure**
-
-```
-project/
-│── app.py
-│── tools.py
-│── agent_setup.py
-│── gradio_app.py
-│── .env
-│── requirements.txt
-│── README.md
-└── .gitignore
+Weather API →
+Hotel API →
+Places API →
+Flights API →
+(Optionally Budget Tool) →
+Final Formatted 3-Day Itinerary
 ```
 
 ---
 
+# 🏆 **Why This Project Stands Out**
+
+* Uses **multiple API tools** (4 external APIs + 1 local tool)
+* Demonstrates **LangChain agentic reasoning**
+* Integrates **Groq LLM** for insane speed
+* Includes both **CLI & UI**
+* Professional structure suitable for assignment & portfolio
+
+---
+
+If you want, I can also create:
+
+✨ `tools.py`
+✨ `.env.example`
+✨ `gradio_app.py`
+✨ GitHub banner image
+
+Just say: **"Give me the remaining files"**
